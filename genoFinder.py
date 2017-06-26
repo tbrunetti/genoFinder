@@ -39,7 +39,7 @@ def diplotype_translation_table(file):
 	return diplo_dict
 
 
-def taqman_genotype_data(file):
+def genotype_data(file):
 	all_samples = {}
 	with open(file) as sample_pheno:
 		header = next(sample_pheno)
@@ -75,5 +75,5 @@ if __name__ == '__main__':
 	diplotype_interpretation = '/home/tonya/github_repositories/genoFinder/example_data/CYP2C19_Diplotype_Phenotype_Table.csv'
 	converted_table = haplotype_table_convert(file=hap_table_file)
 	diplo_dict = diplotype_translation_table(file=converted_table)
-	sample_calls = taqman_genotype_data(file=genotype_data_path)
+	sample_calls = genotype_data(file=genotype_data_path)
 	check_genotype(diplotable=diplo_dict, sample_calls=sample_calls, interpretation=diplotype_interpretation)
