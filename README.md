@@ -12,7 +12,7 @@ Algorithm to find match haplo- and diplo- star alleles to each sample haplo- and
 
 Example images of each:
 <p align="center">
-<img src="https://github.com/tbrunetti/genoFinder/blob/master/diplo_file_example_annotated.png"/>
+<img src="https://github.com/tbrunetti/genoFinder/blob/master/diplo_file_example.tif"/>
 </p>
 
 
