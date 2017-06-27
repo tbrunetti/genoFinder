@@ -1,3 +1,4 @@
+import argparse
 import collections
 import pandas as pd
 import itertools
@@ -54,6 +55,7 @@ def genotype_data(file):
 
 
 def check_genotype(diplotable, sample_calls, interpretation):
+	output = open('samples_matched_with_diplotypes.csv', 'w')
 	diplotype_interpretation = {}
 
 	with open(interpretation) as file:
@@ -62,15 +64,23 @@ def check_genotype(diplotable, sample_calls, interpretation):
 			line = line.strip().split(',')
 			diplotype_interpretation[str(line[0])] = line[1:]
 
+	
 	for key1,value1 in sample_calls.iteritems():
 		for key2,value2 in diplotable.iteritems():
 			if cmp(value1, value2) == 0:
-				print key1, key2, diplotype_interpretation[key2]
+				output.write(str(key1) + ',' +str(key2) + ',' + str(diplotype_interpretation[key2]) + '\n')
 
 
 if __name__ == '__main__':
+	#parser = argparse.ArgumentParser(description = "Parse file names and data types from command line")
+	#parser.add_argument('haplo_file', dest='haplo_file', type=str, help='CSV ')
+	#parser.add_argument('diplo_file', dest='diplo_file', type=str, help='CSV')
+	#parser.add_argument('samples', dest='samples', type=str, help='CSV')
+	#parser.add_argument('diplotype_interpretation', dest='diplotype_interpretation', type=str, help='CSV')
+	#args = parser.parse_args()
+
+
 	hap_table_file = '/home/tonya/github_repositories/genoFinder/example_data/CYP2C19_allele_definition_table.csv'
-	table_path = '/home/tonya/github_repositories/genoFinder/example_data/EXAMPLE 3CYPs biallelic translator_mod_TB.csv'
 	genotype_data_path = '/home/tonya/github_repositories/genoFinder/example_data/CYP2C19_allele_definition_table_converted_diplotype_example_sample_sheet.csv'
 	diplotype_interpretation = '/home/tonya/github_repositories/genoFinder/example_data/CYP2C19_Diplotype_Phenotype_Table.csv'
 	converted_table = haplotype_table_convert(file=hap_table_file)
