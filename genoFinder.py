@@ -55,7 +55,8 @@ def genotype_data(file):
 
 
 def check_genotype(diplotable, sample_calls, interpretation):
-	output = open('samples_matched_with_diplotypes.csv', 'w')
+	output = open('samples_matched_with_diplotypes.tsv', 'w')
+	output.write('sampleID' +'\t' + 'star_diplotype' +'\t' + 'interpretation' + '\t' + 'genotype' + '\n')
 	diplotype_interpretation = {}
 
 	with open(interpretation) as file:
@@ -68,7 +69,7 @@ def check_genotype(diplotable, sample_calls, interpretation):
 	for key1,value1 in sample_calls.iteritems():
 		for key2,value2 in diplotable.iteritems():
 			if cmp(value1, value2) == 0:
-				output.write(str(key1) + ',' +str(key2) + ',' + str(diplotype_interpretation[key2]) + '\n')
+				output.write(str(key1) + '\t' +str(key2) + '\t' + str(diplotype_interpretation[key2]) + '\n')
 
 
 if __name__ == '__main__':

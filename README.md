@@ -38,3 +38,8 @@ Below is an example image of the interpretation table required.  This can be dow
 ##  Output Files
 -----------------
 The output of this algorithm should be a table where each patients' diplotype for the gene of interest can be matched to a star diplotype and then interpreted.  Additionally, the full genotype of the individual should also be written out in the table.
+
+Below is an example of output for the CYP2C19 gene for 3 samples:
+<p align="center">
+<img src="https://github.com/tbrunetti/genoFinder/blob/master/output_example_annotated.png"/>
+</p>
