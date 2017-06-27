@@ -10,7 +10,14 @@ Algorithm to find match haplo- and diplo- star alleles to each sample haplo- and
 | -samples | This is a CSV file that requires 4 headers in order: Call, Sample, hg19, rsid |
 | -diplotype_interpretation | A CSV file that contains the diplotype translations |
 
-Example images of each:
+Example images of each:  
+Below is an image of an example haplo_file input.  This is a slightly modified form of the pharmGKB allele definitions files for each gene.  If this file is supplied then a diplo_file is not necessary as one will be properly generated.
+<p align="center">
+<img src="https://github.com/tbrunetti/genoFinder/blob/master/haplo_file_example_annotated.png"/>
+</p>  
+
+
+Below is an image of an example diplo_file input.  This can be generated in the algorithm if a haplotable file is given using the -haplo_file argument.
 <p align="center">
 <img src="https://github.com/tbrunetti/genoFinder/blob/master/diplo_file_example_annotated.png"/>
 </p>
