@@ -34,3 +34,7 @@ Below is an example image of the interpretation table required.  This can be dow
 <p align="center">
 <img src="https://github.com/tbrunetti/genoFinder/blob/master/diplotype_interpretation_example_annotated.png"/>
 </p>
+
+##  Output Files
+-----------------
+The output of this algorithm should be a table where each patients' diplotype for the gene of interest can be matched to a star diplotype and then interpreted.  Additionally, the full genotype of the individual should also be written out in the table.
