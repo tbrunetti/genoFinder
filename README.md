@@ -17,7 +17,7 @@ Below is an image of an example haplo_file input.  This is a slightly modified f
 </p>  
 
 
-Below is an image of an example diplo_file input.  This can be generated in the algorithm if a haplotable file is given using the -haplo_file argument.
+Below is an image of an example diplo_file input.  This can be generated in the algorithm if a haplotable file is given using the -haplo_file argument.  This should contain every pairwise combination of star alleles.
 <p align="center">
 <img src="https://github.com/tbrunetti/genoFinder/blob/master/diplo_file_example_annotated.png"/>
 </p>
@@ -28,3 +28,7 @@ Below is an example image of the sample sheet.  This is generated per gene and c
 <img src="https://github.com/tbrunetti/genoFinder/blob/master/sample_sheet_example_annotated.png"/>
 </p>
 
+Below is an example image of the interpretation table required.  This can be downloaded from pharmGKB for each gene.  It will contain every pairwise combination of star alleles and how it should be interpreted.
+<p align="center">
+<img src="https://github.com/tbrunetti/genoFinder/blob/master/diplotype_interpretation_example_annotated.png"/>
+</p>
