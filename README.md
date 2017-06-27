@@ -23,3 +23,8 @@ Below is an image of an example diplo_file input.  This can be generated in the 
 </p>
 
 
+Below is an example image of the sample sheet.  This is generated per gene and can include infinite number of patients as long as all the patients are being typed for the sample gene.  Each line is one SNP for one patient.
+<p align="center">
+<img src="https://github.com/tbrunetti/genoFinder/blob/master/sample_sheet_example_annotated.png"/>
+</p>
+
