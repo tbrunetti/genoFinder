@@ -1,0 +1,4 @@
+sampleID	star_diplotype	interpretation	genotype
+Pat10_10	*10/*10	['CYP2C19 Likely Intermediate Metabolizer', 'Abnormal/Priority/High Risk']
+Pat1_15	*1/*15	['CYP2C19 Normal Metabolizer ', 'Normal/Routine/Low Risk']
+Pat3_24	*3/*24	['CYP2C19 Poor Metabolizer', 'Abnormal/Priority/High Risk']
