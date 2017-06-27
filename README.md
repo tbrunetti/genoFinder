@@ -3,6 +3,8 @@ Algorithm to find match haplo- and diplo- star alleles to each sample haplo- and
 
 ## Arguments and Input File Formats
 ------------------------------------
+There are **3 required arguments/files** in order to run this algorithm.  The user needs to either provide a haplotype file using the -haplo_file argument or a diplotype file using the -diplo_file argument.  Additionally a sample sheet and an interpretation table.  Please refer to the images below for more information on formatting.
+
 | Argumment | Description |
 | --- | --- |
 | -haplo_file | This is a CSV file similar to the pharmGKB allele definition table.  The 1st line contains hg19 coordianates of the SNP and the 2nd line is the rsID |
