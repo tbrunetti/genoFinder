@@ -73,18 +73,33 @@ def check_genotype(diplotable, sample_calls, interpretation):
 
 
 if __name__ == '__main__':
-	#parser = argparse.ArgumentParser(description = "Parse file names and data types from command line")
-	#parser.add_argument('haplo_file', dest='haplo_file', type=str, help='CSV ')
-	#parser.add_argument('diplo_file', dest='diplo_file', type=str, help='CSV')
-	#parser.add_argument('samples', dest='samples', type=str, help='CSV')
-	#parser.add_argument('diplotype_interpretation', dest='diplotype_interpretation', type=str, help='CSV')
-	#args = parser.parse_args()
+	parser = argparse.ArgumentParser(description = "Parse file names and data types from command line")
+	parser.add_argument('-haplo_file', default=None, dest='haplo_file', type=str, help='CSV ')
+	parser.add_argument('-diplo_file', default= None, dest='diplo_file', type=str, help='CSV')
+	parser.add_argument('-samples', dest='samples', type=str, help='CSV')
+	parser.add_argument('-diplotype_interpretation', dest='diplotype_interpretation', type=str, help='CSV')
+	args = parser.parse_args()
+
+	hap_table_file = args.haplo_file
+	converted_table = args.diplo_file
+	genotype_data_path = args.samples
+	diplotype_interpretation = args.diplotype_interpretation
+
+	if hap_table_file == None:
+		try:
+			diplo_dict = diplotype_translation_table(file=converted_table)
+			sample_calls = genotype_data(file=genotype_data_path)
+			check_genotype(diplotable=diplo_dict, sample_calls=sample_calls, interpretation=diplotype_interpretation)
+		except IOError:
+			print("Diplotype file does not exist, please either supply a haplotype file using -haplo_file or a diplotype table using -diplo_file")
+
+	else:
+		try:
+			converted_table = haplotype_table_convert(file=hap_table_file)
+			diplo_dict = diplotype_translation_table(file=converted_table)
+			sample_calls = genotype_data(file=genotype_data_path)
+			check_genotype(diplotable=diplo_dict, sample_calls=sample_calls, interpretation=diplotype_interpretation)
+		except IOError:
+			print("Haplotype file does not exist, please either supply a haplotype file using -haplo_file or a diplotype table using -diplo_file")
 
 
-	hap_table_file = '/home/tonya/github_repositories/genoFinder/example_data/CYP2C19_allele_definition_table.csv'
-	genotype_data_path = '/home/tonya/github_repositories/genoFinder/example_data/CYP2C19_allele_definition_table_converted_diplotype_example_sample_sheet.csv'
-	diplotype_interpretation = '/home/tonya/github_repositories/genoFinder/example_data/CYP2C19_Diplotype_Phenotype_Table.csv'
-	converted_table = haplotype_table_convert(file=hap_table_file)
-	diplo_dict = diplotype_translation_table(file=converted_table)
-	sample_calls = genotype_data(file=genotype_data_path)
-	check_genotype(diplotable=diplo_dict, sample_calls=sample_calls, interpretation=diplotype_interpretation)
