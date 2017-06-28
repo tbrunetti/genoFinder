@@ -56,8 +56,15 @@ def genotype_data(file):
 
 def check_genotype(diplotable, sample_calls, interpretation):
 	output = open('samples_matched_with_diplotypes.tsv', 'w')
-	output.write('sampleID' +'\t' + 'star_diplotype' +'\t' + 'interpretation' + '\t' + 'genotype' + '\n')
+	output_header = ['sampleID', 'star_diplotype', 'interpretation']
+	star_pairs = [key for key in diplotable]
+	#output.write('sampleID' +'\t' + 'star_diplotype' +'\t' + 'interpretation' + '\t' + 'genotype' + '\n')
 	diplotype_interpretation = {}
+
+	snp_ids = [tuples[0] for tuples in diplotable[star_pairs[0]]]
+	output_header.extend(snp_ids)
+	output.write('\t'.join(output_header) +'\n')
+
 
 	with open(interpretation) as file:
 		header = next(file)
@@ -66,10 +73,19 @@ def check_genotype(diplotable, sample_calls, interpretation):
 			diplotype_interpretation[str(line[0])] = line[1:]
 
 	
+	
 	for key1,value1 in sample_calls.iteritems():
+		patient_geno = []
 		for key2,value2 in diplotable.iteritems():
 			if cmp(value1, value2) == 0:
-				output.write(str(key1) + '\t' +str(key2) + '\t' + str(diplotype_interpretation[key2]) + '\n')
+				for ids in value1:	
+					for snps in snp_ids:
+						if ids[0] == snps:
+							patient_geno.append(ids[1])
+							del ids
+							break;
+
+				output.write(str(key1) + '\t' +str(key2) + '\t' + str(diplotype_interpretation[key2]) + '\t' + '\t'.join(patient_geno) + '\n')
 
 
 if __name__ == '__main__':
