@@ -1,5 +1,5 @@
 # genoFinder
-Algorithm to find match haplo- and diplo- star alleles to each sample haplo- and diplo- types on a per gene basis
+Algorithm to find and  match haplo- and diplo- star alleles to each sample haplo- and diplo- types on a per gene basis
 
 ## Running genoFinder
 ----------------------
@@ -15,10 +15,10 @@ There are **3 required arguments/files** in order to run this algorithm.  The us
 
 | Argumment | Description |
 | --- | --- |
-| -haplo_file | This is a CSV file similar to the pharmGKB allele definition table.  The 1st line contains hg19 coordianates of the SNP and the 2nd line is the rsID |
-| -diplo_file | This is a CSV file where the first line is a tuple of the hg19 genome coordinates following by the rsID. |
-| -samples | This is a CSV file that requires 4 headers in order: Call, Sample, hg19, rsid |
-| -diplotype_interpretation | A CSV file that contains the diplotype translations |
+| -haplo_file | This is a CSV file similar to the pharmGKB allele definition table.  The 1st line contains hg19 coordianates of the SNP and the 2nd line is the rsID.  If this argument is used on the command line then the -diplo_file argument is not needed |
+| -diplo_file | This is a CSV file where the first line is a tuple of the hg19 genome coordinates following by the rsID. If this argument is used on the command line then the -haplo_file argument is not needed.  When both are specified the diplo_file takes precendence and will be used.|
+| -samples | REQUIRED This is a CSV file that requires 4 headers in order: Call, Sample, hg19, rsid.|
+| -diplotype_interpretation | REQUIRED A CSV file that contains the diplotype translations |
 
 Example images of each:  
 Below is an image of an example haplo_file input.  This is a slightly modified form of the pharmGKB allele definitions files for each gene.  If this file is supplied then a diplo_file is not necessary as one will be properly generated.
