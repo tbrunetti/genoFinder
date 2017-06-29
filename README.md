@@ -5,7 +5,7 @@ Algorithm to find and  match haplo- and diplo- star alleles to each sample haplo
 ----------------------
 Within the example_data directory, there should be examples of all the input and output files for running and checking the output of the algorithm.  In order to test that that algorithm works, it is recommended the user run the example data first.  This can be accomplished by running the following command:
 ```
-python genofinder -haplo_file example_data/CYP2C19_allele_definition_table.csv -samples example_data/CYP2C19_allele_definition_table_converted_diplotype_example_sample_sheet.csv -diplotype_interpretation example_data/CYP2C19_Diplotype_Phenotype_Table.csv
+python genofinder.py -haplo_file example_data/CYP2C19_allele_definition_table.csv -samples example_data/CYP2C19_allele_definition_table_converted_diplotype_example_sample_sheet.csv -diplotype_interpretation example_data/CYP2C19_Diplotype_Phenotype_Table.csv
 ```
 This should output a file called samples_matched_with_diplotypes.tsv which should match the file with the same name in the example_data directory.  
 
